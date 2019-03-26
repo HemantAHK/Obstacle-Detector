@@ -1,0 +1,75 @@
+C51 COMPILER V9.59.0.0   OSTACLE_DETECTOR                                                  03/26/2019 22:21:18 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE OSTACLE_DETECTOR
+OBJECT MODULE PLACED IN .\Objects\Ostacle_Detector.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Ostacle_Detector.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\Ostacle_Detector.lst) TABS(2) OBJECT(.\Objects\Ostacle_Detector.obj)
+
+line level    source
+
+   1          #include<REG51.h>
+   2          sbit lm1 = P2^0;
+   3          sbit lm2 = P2^1;
+   4          sbit rm1 = P2^2;
+   5          sbit rm2 = P2^3;
+   6          sbit rs = P1^0;
+   7          sbit cs = P1^1;
+   8          sbit ls = P1^2;
+   9          
+  10          void main()
+  11          {
+  12   1        while(1)
+  13   1        {
+  14   2          /*FORWARD*/
+  15   2          if((ls==0 && cs==0 && rs==0)||(ls==1 && cs==0 && rs==1))
+  16   2          {
+  17   3            lm1=1;
+  18   3            lm2=0;
+  19   3            rm1=1;
+  20   3            rm2=0;
+  21   3          }
+  22   2          /*LEFT*/
+  23   2          else if((ls==0 && cs==0 && rs==1)||(ls==0 && cs==1 && rs==0)||(ls==0&&cs==1&&rs==1))
+  24   2          {
+  25   3            lm1=0;
+  26   3            lm2=0;
+  27   3            rm1=1;
+  28   3            rm2=0;
+  29   3          }
+  30   2        
+  31   2          /*RIGHT*/
+  32   2          else if((ls==1 && cs==0 && rs==0)||(ls==1 && cs==1 && rs==0))
+  33   2          {
+  34   3            lm1=1;
+  35   3            lm2=0;
+  36   3            rm1=0;
+  37   3            rm2=0;
+  38   3          }
+  39   2          /*BACKWARD*/
+  40   2          else if(ls==1 && cs==1 && rs==1)
+  41   2          {
+  42   3            lm1=0;
+  43   3            lm2=1;
+  44   3            rm1=0;
+  45   3            rm2=1;
+  46   3          }
+  47   2          
+  48   2        }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    106    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.59.0.0   OSTACLE_DETECTOR                                                  03/26/2019 22:21:18 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
