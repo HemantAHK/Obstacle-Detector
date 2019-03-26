@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Ostacle_Detector.obj" 
+TO ".\Objects\Obstacle_Detector" 
+PRINT(".\Listings\Obstacle_Detector.m51")
